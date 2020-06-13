@@ -3,12 +3,25 @@ import os
 import requests
 
 
+def bot_command_decorator(command):
+    def method_decorator(method_to_decorate):
+        def wrapper(self, request_body, user_id):
+            message = request_body.get('message')
+            if message:
+                if message.get('text') == command:
+                    user_id = message['from'].get('id')
+                    return method_to_decorate(self, request_body, user_id)
+        return wrapper
+    return method_decorator
+            
+
 class TelegramBot():
 
     def __init__(self):
 
         self.token = os.environ.get('NEWS_TOKEN')
-        self.url = f'https://api.telegram.org/{self.token}'
+        self.url = f'https://api.telegram.org/bot{self.token}'
+        
     
     def getMe(self):
         
@@ -85,6 +98,18 @@ def createRowKeyboard(keyboard_layout):
     for category in keyboard_layout:
         button = InlineKeyobardButton(text = category[1], callback_data= category[0]).getButton()
         keyboard.addRow([button])
+        
+    return keyboard.getKeyboard()
+
+def createLineKeyboard(keyboard_layout):
+
+    keyboard = InlineKeyobardMarkup()
+    buttons = []
+    for category in keyboard_layout:
+        button = InlineKeyobardButton(text = category[1], callback_data= category[0]).getButton()
+        buttons.append(button)
+        
+    keyboard.addRow(buttons)
         
     return keyboard.getKeyboard()
 
