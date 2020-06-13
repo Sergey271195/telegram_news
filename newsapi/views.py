@@ -21,9 +21,12 @@ NEWS_SOURCES_NAMES = [
     'NYT', 'BBC', 'RST', 'FOX', 'KP', 'RIA', 'RBK'
 ]
 
+
+
 class NewsSender():
 
     def __init__(self):
+        print('Reinitialize')
         self.tgBot = TelegramBot()
 
         self.NYT = NewYorkTimesNews()
