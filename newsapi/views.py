@@ -126,9 +126,9 @@ class NewsSender():
 
 
         if not data:
-            reply = self.tgBot.sendMessage(user_id, text = 'Article\n' + links_list[current_article], parse_mode='HTML', reply_markup=createLineKeyboard(LAYOUT))
+            reply = self.tgBot.sendMessage(user_id, text = links_list[current_article], parse_mode='HTML', reply_markup=createLineKeyboard(LAYOUT))
         else:
-            reply = self.tgBot.editMessageText(user_id, message_id, 'Article\n' + links_list[current_article], parse_mode='HTML', reply_markup=createLineKeyboard(LAYOUT))
+            reply = self.tgBot.editMessageText(user_id, message_id, links_list[current_article], parse_mode='HTML', reply_markup=createLineKeyboard(LAYOUT))
 
 
 

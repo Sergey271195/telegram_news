@@ -30,7 +30,7 @@ class BBCNews():
     def prepare_messages(self):
         messages = []
         for href in self.articles:
-            message = f'<a href="{href}">&#8204;</a>'
+            message = f'<a href="{href}">Full Article</a>'
             messages.append(message)
         return messages
 
@@ -65,7 +65,7 @@ class NewYorkTimesNews():
                 if headline:
                     if article_href:
                         href = article_href.group('href')
-                        message = f'<a href="https://www.nytimes.com{href}">&#8204;</a>'
+                        message = f'<a href="https://www.nytimes.com{href}">Full Article</a>'
 
                     messages.append(message)
             return(messages)
@@ -95,7 +95,7 @@ class RollingStoneNews():
     def prepare_messages(self):
         messages = []
         for href in self.articles:
-            message = f'<a href="{href}">&#8204;</a>'
+            message = f'<a href="{href}">Full Article</a>'
             messages.append(message)
         return messages
 
@@ -123,7 +123,7 @@ class FoxNews():
     def prepare_messages(self):
         messages = []
         for href in self.articles:
-            message = f'<a href="{href}">&#8204;</a>'
+            message = f'<a href="{href}">Full Article</a>'
             messages.append(message)
         return messages
 
@@ -151,7 +151,7 @@ class KPNews():
     def prepare_messages(self):
         messages = []
         for href in self.articles:
-            message = f'<a href="{href}">&#8204;</a>'
+            message = f'<a href="{href}">Full Article</a>'
             messages.append(message)
         return messages
 
@@ -182,7 +182,7 @@ class RIANews():
     def prepare_messages(self):
         messages = []
         for href in self.articles:
-            message = f'<a href="{href}">&#8204;</a>'
+            message = f'<a href="{href}">Full Article</a>'
             messages.append(message)
         return messages
 
@@ -212,7 +212,7 @@ class RBKNews():
     def prepare_messages(self):
         messages = []
         for href in self.articles:
-            message = f'<a href="{href}">&#8204;</a>'
+            message = f'<a href="{href}">Full Article</a>'
             messages.append(message)
         return messages
 
